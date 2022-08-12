@@ -13,10 +13,6 @@ const Users = db.define("users", {
     type: DataTypes.STRING(80), 
     allowNull: false 
   },
-  // birdSightingsArray: {
-  //   type: DataTypes.ARRAY(DataTypes.STRING),
-  //   allowNull: true,
-  // },
   picture: {
     type: DataTypes.STRING,
     allowNull: true,
@@ -31,8 +27,6 @@ const Users = db.define("users", {
     primaryKey: true,
     autoIncrement: true,
   },
-  // name: { type: DataTypes.STRING(80), allowNull: false },
-  // password: {Type: DataTypes.STRING, allowNull: false}, 
 });
 
 // Export Schema

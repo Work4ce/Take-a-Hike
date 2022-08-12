@@ -3,6 +3,30 @@ const { DataTypes } = require("sequelize");
 const { db } = require("../index.js");
 
 // Create Schema
+const Users = db.define("users", {
+  googleId: {
+    type: DataTypes.STRING,
+    allowNull: true,
+    unique: true,
+  },
+  fullName: { 
+    type: DataTypes.STRING(80), 
+    allowNull: false 
+  },
+  picture: {
+    type: DataTypes.STRING,
+    allowNull: true,
+  },
+  email: {
+    type: DataTypes.STRING,
+    allowNull: true,
+  },
+  _id: {
+    type: DataTypes.INTEGER,
+    primaryKey: true,
+    autoIncrement: true,
+  },
+});
 const Trips = db.define("trips", {
   _id: {
     type: DataTypes.INTEGER,
@@ -18,8 +42,8 @@ const Trips = db.define("trips", {
   user_id: { type: DataTypes.INTEGER, allowNull: true, foreignKey: true, references: { model: 'users', key: '_id' }},
 });
 
-
 // Export Schema
 module.exports = {
   Trips,
+  Users
 };
