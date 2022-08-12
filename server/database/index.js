@@ -28,3 +28,4 @@ db.query("set foreign_key_checks = 0");
 module.exports = {
   db,
 };
+

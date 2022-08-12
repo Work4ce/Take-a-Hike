@@ -2,18 +2,6 @@
 
 Trail Feathers is an app for hiking and bird watching anywhere in the world! Use it to explore hiking and biking trails, organize lists of items to bring with you, and search for any North American bird.
 
-# Team ACE
-
-Product Owner:
-Scrum Master: Caity Opelka
-Development Team: Rodolfo Machirica, Rene Mercadel, John Dyer, Santo Lococo, Murphy Fleenor
-
-# Team Work4ce
-
-Product Owner:
-Scrum Master: Caity Opelka
-Development Team: Vincent Tong, Bethany Jones, Ryan Smith
-
 # Application Walk Through
 
 The idea is to have one stop shop for all your hiking needs, with a focus on Louisiana.
@@ -23,7 +11,7 @@ When a user opens the application they will be brought to the login page where t
 Located at the top right of every page is a navigation burger menu which contains {x} options that will quickly navigate the user to various features of the application. From left to right are the ...
 
 ## Trips
-Allows the user to view their upcoming and past trips 
+Allows the user to view their upcoming and past trips
 
 ### Quartermaster
 Allows user to create packing lists with just a name of the list and a description, after which the list is displayed on the page.
@@ -87,7 +75,14 @@ We used several external apis for this project:
 - BirdSightings API - https://documenter.getpostman.com/view/664302/S1ENwy59?version=latest
    This api allows users to search for any bird species and receive data about that specific bird. It is maintained by Cornell University and is free.
 
-- Google Maps API - 
+- Google Maps API - follow Google API instructions below and enable Google Maps API & Google Places API in your Google API console
+
+<h2 align='left'>GOOGLE API</h2>
+
+- Go to google api console website https://console.cloud.google.com/
+- Click create and name the project
+- Go to the project and name your app
+- When you receive client ID and client secret, place these values in your .env file
 
 ### front-end
 
@@ -139,14 +134,14 @@ Google Oauth requires a google cloud account. First create your account and then
 	- From there you can see your daily API call usage by going to Billing Plans > View Usage Statistics
 
 ## AWS RDS DATABASE SETUP
-- To create an online database to be accessible anywhere, you will need to have an AWS account and have IAM users set up. 
+- To create an online database to be accessible anywhere, you will need to have an AWS account and have IAM users set up.
 - Then you will need to create a database through RDS. Save your username and password for the database. You will need them for the next step. https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_CreateDBInstance.html
-- Once your database is live, you will need to go to your RDS dashboard, go to Databases and access your live database. Retrieve the Endpoint, Port, and update your VPS security groups to include SSH requests from relevant IP addresses. 
+- Once your database is live, you will need to go to your RDS dashboard, go to Databases and access your live database. Retrieve the Endpoint, Port, and update your VPS security groups to include SSH requests from relevant IP addresses.
 ![RDS Setup](mockups/RDS-setup.png)
 - To be able to see the live data in your database, you will want to download Mysql Workbench. https://dev.mysql.com/downloads/workbench/
 - Once downloaded, create a mysql connection with any Connection Name and input your Endpoint as the Hostname, Port, the Username you created when you setup your Database, and the password. Click Test Connection to test whether the setup work. If it throws an error, you likely need to update your inbound security rules in your security group in the RDS dashboard.
 ![RDS Setup](mockups/RDS-setup-workbench.png)
-- Update your .env with the Endpoint(HostName), Username, Password, and Port. 
+- Update your .env with the Endpoint(HostName), Username, Password, and Port.
 - Once your mysql connection works and your .env is completed, seed the database from your VScode terminal. You can then refresh your Schemas in the Workbench and see the TakeAHike Schema with the seeded tables. To view the data in that table, hover over it and click the far right spreadsheet icon.
 ![RDS Setup](mockups/RDS-setup-workbench2.png)
 
@@ -154,19 +149,32 @@ Google Oauth requires a google cloud account. First create your account and then
 
 - First fork the repo and clone it to your local machine.
 - Collect all env keys
-- Run 'npm install' to install all dependencies
+- Run `npm install` to install all dependencies
 - (if using local mysql) Open mysql, create and use a database called 'TakeAHike'
 - (if using RDS) Update .env to match your RDS specs
-- Run 'npm run dev' to start Webpack
-- Run 'npm run seed' to seed Database
-- Run 'npm start' to run the server
+- Run `npm run dev` to start Webpack
+- Run `npm run seed` to seed Database
+- Run `npm start` to run the server
 
 ### Known Bugs
 
 - If you input a non-land based coordinate when searching for trails, it will return an error.
 - If a user logs in, the redirect does not send the user back to the app, instead you have to hit back in the browser.
-- The user profile pulls the first record from the database, not necessarily the 'logged in' user. 
+- The user profile pulls the first record from the database, not necessarily the 'logged in' user.
 
+---
+
+# Team ACE
+
+Product Owner:
+Scrum Master: Caity Opelka
+Development Team: Rodolfo Machirica, Rene Mercadel, John Dyer, Santo Lococo, Murphy Fleenor
+
+# Team Work4ce
+
+Product Owner:
+Scrum Master: Caity Opelka
+Development Team: Vincent Tong, Bethany Jones, Ryan Smith
 
 ## App Mockups
 ![Trips](mockups/takeahike-trips.png)
